@@ -35,5 +35,5 @@ def data(acc_number):
 def function():
     if request.method == 'POST':
         acc_no = request.form['acc_no']
-        return jsonify(data(acc_no))
+        return jsonify(str(data(int(acc_no))))
     return "<p>Hello, World!</p>"
