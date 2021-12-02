@@ -1,19 +1,23 @@
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-@app.route('/<string:inpt_acc_no>')
+@app.route('/signin/<string:inpt_acc_no>')
 def alris_ie(inpt_acc_no):
-    inpt = str(inpt_acc_no)
+    inpt = inpt_acc_no
     inpt_arr = inpt.split("_")
     usrname = int(inpt_arr[0])
     passwrd = int(inpt_arr[1])
+    string = "no"
     if usrname - passwrd == 987650000:
-        return jsonify("yes")
+        string = "yes"
     else:
-        return jsonify("no")
+        string = "no"
+    return jsonify(string) 
 
-    
-    
+
+@app.route('/')
+def alris():
+    return "Welcome to alris' API"
 
 
 if __name__ == "__main__":
