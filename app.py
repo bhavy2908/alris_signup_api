@@ -11,7 +11,12 @@ def alris_ie(inpt_acc_no):
         dict = {0 : "yes"}
     else:
         dict = {0 : "no"}
-    return jsonify(dict) 
+    response = app.response_class(
+        response=json.dumps(dict),
+        status=200,
+        mimetype='application/json'
+    )
+    return response 
 
 
 @app.route('/')
