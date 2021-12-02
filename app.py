@@ -8,9 +8,9 @@ def alris_ie(inpt_acc_no):
     usrname = int(inpt_arr[0])
     passwrd = int(inpt_arr[1])
     if usrname - passwrd == 987650000:
-        return "yes"
+        return jsonify("yes")
     else:
-        return "no"
+        return jsonify("no")
 
     
     
