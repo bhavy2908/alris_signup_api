@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-@app.route('/alris_signup/<string:inpt_acc_no>')
+@app.route('/<string:inpt_acc_no>')
 def alris_ie(inpt_acc_no):
     inpt = str(inpt_acc_no)
     inpt_arr = inpt.split("_")
