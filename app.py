@@ -1,5 +1,4 @@
-from flask import Flask, request
-import jsonify as jf
+from flask import Flask, request, jsonify
 import pandas as pd
 
 app = Flask(__name__)
@@ -36,5 +35,5 @@ def data(acc_number):
 def function():
     if request.method == 'POST':
         acc_no = request.form['acc_no']
-        return jf(data(acc_no))
+        return jsonify(data(acc_no))
     return "<p>Hello, World!</p>"
