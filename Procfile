@@ -1,1 +1,1 @@
-web: gunicon wsgi:main
+web: gunicorn wsgi:main
