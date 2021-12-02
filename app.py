@@ -7,12 +7,11 @@ def alris_ie(inpt_acc_no):
     inpt_arr = inpt.split("_")
     usrname = int(inpt_arr[0])
     passwrd = int(inpt_arr[1])
-    string = "no"
     if usrname - passwrd == 987650000:
-        string = "yes"
+        dict = {0 : "yes"}
     else:
-        string = "no"
-    return jsonify(string) 
+        dict = {0 : "no"}
+    return jsonify(dict) 
 
 
 @app.route('/')
