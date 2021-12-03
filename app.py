@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from flask_cors import CORS
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +21,8 @@ def data(acc_number):
     inc = cur_df['Income'].to_numpy()
     exp = cur_df['Expenditure'].to_numpy()
     sav = cur_df['Savings'].to_numpy()
+    annual = random.randint(50,80)
+    monthly = random.randint(30,50)
     return {
         "inc": list(inc),
         "exp": list(exp),
@@ -31,6 +34,11 @@ def data(acc_number):
         "invest_to": invest_to,
         "ati": bal*0.08/(1+factor),
         "exptd_ret": bal*0.08,
+        "annual": annual,
+        "monthly": monthly,
+        "annual_x": 100-annual,
+        "monthly_x": 100-monthly,
+
     }
 
 @app.route('/')

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.L.R.I.S.</title>
-    <link rel="stylesheet" href={{ url_for('static', filename='alris-main/style.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='alris-main/style.css' ) }}>
 
 </head>
 
@@ -15,7 +15,8 @@
         <nav class="nav" style="position: fixed; z-index: 2;">
             <div class="container">
                 <div class="logo">
-                    <img src={{ url_for('static', filename='alris-main/Logopit_1632172412965.png') }} alt="" srcset="" width="150px">
+                    <img src={{ url_for('static', filename='alris-main/Logopit_1632172412965.png' ) }} alt="" srcset=""
+                        width="150px">
                 </div>
                 <div id="mainListDiv" class="main_list">
                     <ul class="navlinks" style="padding-top: 10px;">
@@ -42,7 +43,7 @@
     <div class="container" style="position: relative; z-index: 1;">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src={{ url_for('static', filename='alris-main/scripts.js') }}></script>
+        <script src={{ url_for('static', filename='alris-main/scripts.js' ) }}></script>
         <script>
             $(window).scroll(function () {
                 if ($(document).scrollTop() > 50) {
@@ -63,7 +64,7 @@
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Account Number</label>
-                    <input type="text" value="9919103153XXXXX69" disabled />
+                    <input type="text" value="9876XXXXX" disabled />
                 </div>
             </section>
             <section class="right hello" style="padding-right: 40px;">
@@ -86,17 +87,17 @@
             <br><br><br><br><br><br>
             <div class="graph">
                 <ul class="x-axis">
-                    <li><span>May</span></li>
-                    <li><span>June</span></li>
-                    <li><span>July</span></li>
                     <li><span>August</span></li>
                     <li><span>September</span></li>
+                    <li><span>October</span></li>
+                    <li><span>November</span></li>
+                    <li><span>December</span></li>
                 </ul>
                 <ul class="y-axis">
-                    <li><span>₹4000</span></li>
-                    <li><span>₹3000</span></li>
-                    <li><span>₹2000</span></li>
-                    <li><span>₹1000</span></li>
+                    <li><span>₹40000</span></li>
+                    <li><span>₹30000</span></li>
+                    <li><span>₹20000</span></li>
+                    <li><span>₹10000</span></li>
                     <li><span>₹0</span></li>
                 </ul>
                 <div class="bars">
@@ -180,11 +181,12 @@
                 <circle class="donut-ring" cx="20" cy="20" r="10.91549430918954" fill="transparent" stroke-width="3.5">
                 </circle>
                 <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="15.91549430918954" fill="transparent"
-                    stroke-width="3.5" stroke-dasharray="69 31" stroke-dashoffset="25"></circle>
+                    stroke-width="3.5" stroke-dasharray="{{data.annual}} {{data.annual_x}}" stroke-dashoffset="25">
+                </circle>
                 <g class="donut-text donut-text-1">
 
                     <text y="50%" transform="translate(0, 2)">
-                        <tspan x="50%" text-anchor="middle" class="donut-percent">69%</tspan>
+                        <tspan x="50%" text-anchor="middle" class="donut-percent">{{data.annual}}%</tspan>
                     </text>
                     <text y="60%" transform="translate(0, 2)">
                         <tspan x="50%" text-anchor="middle" class="donut-data">Annual Goal</tspan>
@@ -202,7 +204,7 @@
                 <g class="donut-text donut-text-2">
 
                     <text y="50%" transform="translate(0, 2)">
-                        <tspan x="50%" text-anchor="middle" class="donut-percent">30%</tspan>
+                        <tspan x="50%" text-anchor="middle" class="donut-percent">{{data.monthly}}%</tspan>
                     </text>
                     <text y="60%" transform="translate(0, 2)">
                         <tspan x="50%" text-anchor="middle" class="donut-data">Monthly Goal</tspan>
@@ -238,7 +240,7 @@
         <div>
             <section class="hello" style="padding-right: 40px; width: 80%; margin-left: 10%;">
                 <div class="input-container">
-                    <label class="center" for="name" style="font-size: 3rem;">October 2021</label>
+                    <label class="center" for="name" style="font-size: 3rem;">January 2022</label>
                     <br>
                     <label for="name">Expected Earnings</label>
                     <input value="₹ {{data.exptd_inc}}" disabled />
@@ -250,6 +252,10 @@
                 <div class="input-container">
                     <label for="Account" required>Investable Amount</label>
                     <input type="text" value="₹ {{data.ati}}" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Expected Return</label>
+                    <input type="text" value="₹ {{data.exptd_ret}}" disabled />
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Invest To</label>
@@ -284,48 +290,48 @@
     </footer>
     <script>
         const api_url = 'https://alrissignup.herokuapp.com/';
-        const url1=window.location.href;
+        const url1 = window.location.href;
         function parseURLParams(url) {
-        var queryStart = url.indexOf("?") + 1,
-        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
-        query = url.slice(queryStart, queryEnd - 1),
-        pairs = query.replace(/\+/g, " ").split("&"),
-        parms = {}, i, n, v, nv;
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
 
-    if (query === url || query === "") return;
+            if (query === url || query === "") return;
 
-    for (i = 0; i < pairs.length; i++) {
-        nv = pairs[i].split("=", 2);
-        n = decodeURIComponent(nv[0]);
-        v = decodeURIComponent(nv[1]);
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
 
-        if (!parms.hasOwnProperty(n)) parms[n] = [];
-        parms[n].push(nv.length === 2 ? v : null);
-    }
-    return parms;
-}
-const var2=parseURLParams(url1);
-console.log(var2); 
-
-       const var1=var2.username[0];
-       async function getDAta(){
-          const data1= {acc_no:var1};
-      const response = await fetch(api_url, {
-                   method: 'POST',
-                   headers: {
-                       'Content-Type': 'application/json'
-                   },
-                   body: JSON.stringify(data1)
-               });
-      const data = await response.json();
-     //const {bal,name,exptd_inc,exptd_exp,invest_to,ati,exptd_ret}=data;
-        console.log(data);
-        return data;
-    
-     
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
             }
-            getDAta();
-   </script>
+            return parms;
+        }
+        const var2 = parseURLParams(url1);
+        console.log(var2);
+
+        const var1 = var2.username[0];
+        async function getDAta() {
+            const data1 = { acc_no: var1 };
+            const response = await fetch(api_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data1)
+            });
+            const data = await response.json();
+            //const {bal,name,exptd_inc,exptd_exp,invest_to,ati,exptd_ret}=data;
+            console.log(data);
+            return data;
+
+
+        }
+        getDAta();
+    </script>
 </body>
 
 </html>
