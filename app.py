@@ -68,6 +68,7 @@ def return_index():
         s1 = request.form['s1']
         s2 = request.form['s2']
         s3 = request.form['s3']
+        khatka = request.form['khatka']
         return render_template('return calculator/index.html')
     return render_template('return calculator/index.html')
 
