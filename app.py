@@ -43,7 +43,7 @@ def signIn():
 
 @app.route('/alris-main/index')
 def alris_main_index():
-    dics = data(987654321)
+    dics = data(int(request.args.get('username')))
     return render_template('alris-main/index.html', data=dics)
 
 @app.route('/alris-main/about')

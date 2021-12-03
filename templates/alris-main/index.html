@@ -241,19 +241,19 @@
                     <label class="center" for="name" style="font-size: 3rem;">October 2021</label>
                     <br>
                     <label for="name">Expected Earnings</label>
-                    <input value="₹ 999999" disabled />
+                    <input value="₹ {{data.exptd_inc}}" disabled />
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Expected Expenditure</label>
-                    <input type="text" value="₹ 99999" disabled />
+                    <input type="text" value="₹ {{data.exptd_exp}}" disabled />
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Investable Amount</label>
-                    <input type="text" value="₹ 9999" disabled />
+                    <input type="text" value="₹ {{data.ati}}" disabled />
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Invest To</label>
-                    <input type="text" value="Bhavy Enterprises Inc." disabled />
+                    <input type="text" value="{{data.invest_to}}" disabled />
                 </div>
                 <div class="input-container">
                     <label for="Account" required>Risk Factor</label>
