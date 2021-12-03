@@ -36,6 +36,6 @@ def data(acc_number):
 @app.route("/", methods = ['POST', 'GET'])
 def function():
     if request.method == 'POST':
-        acc_no = request.data['acc_no']
+        acc_no = request.json['acc_no']
         return jsonify(str(data(int(acc_no))))
     return "<p>Hello, World!</p>"
