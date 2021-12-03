@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.L.R.I.S.</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='alris-main/style.css') }}>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav" style="position: fixed; z-index: 2;">
+            <div class="container">
+                <div class="logo">
+                    <img src={{ url_for('static', filename='alris-main/Logopit_1632172412965.png') }} alt="" srcset="" width="150px">
+                </div>
+                <div id="mainListDiv" class="main_list">
+                    <ul class="navlinks" style="padding-top: 10px;">
+                        <li><a href="/alris-main/about">About</a></li>
+                        <li><a href="/return/index">Return Calculator</a></li>
+                        <li><a href="/alris-main/profile">Profile</a></li>
+                        <li><a href="/">Log Out</a></li>
+                    </ul>
+                </div>
+                <span class="navTrigger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br>
+
+    <div class="container" style="position: relative; z-index: 1;">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src={{ url_for('static', filename='alris-main/scripts.js') }}></script>
+        <script>
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        </script>
+        <br><br>
+
+        <form action="" class="hello container">
+            <section class="left hello" style="padding-right: 40px;">
+                <div class="input-container">
+                    <label for="name">Username</label>
+                    <input value="{{data.name}}" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Account Number</label>
+                    <input type="text" value="9919103153XXXXX69" disabled />
+                </div>
+            </section>
+            <section class="right hello" style="padding-right: 40px;">
+                <div class="input-container">
+                    <label for="name">Current Account Balance</label>
+                    <input value="₹ {{data.bal}}" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="age" required>Current Risk Factor</label>
+                    <input type="text" value="Low" disabled style="color: green;" />
+                </div>
+            </section>
+        </form>
+
+
+        <div id="bar-chart" class="center" style="padding-left: 20px;">
+
+
+            <a style="font-size: 2.4rem; text-align: center;">Your Monthly Expenditure and Return</a>
+            <br><br><br><br><br><br>
+            <div class="graph">
+                <ul class="x-axis">
+                    <li><span>May</span></li>
+                    <li><span>June</span></li>
+                    <li><span>July</span></li>
+                    <li><span>August</span></li>
+                    <li><span>September</span></li>
+                </ul>
+                <ul class="y-axis">
+                    <li><span>₹4000</span></li>
+                    <li><span>₹3000</span></li>
+                    <li><span>₹2000</span></li>
+                    <li><span>₹1000</span></li>
+                    <li><span>₹0</span></li>
+                </ul>
+                <div class="bars">
+                    <div class="bar-group">
+                        <div class="bar bar-1 stat-1" style="height: 51%;">
+                            <span>4080</span>
+                        </div>
+                        <div class="bar bar-2 stat-2" style="height: 71%;">
+                            <span>5680</span>
+                        </div>
+                        <div class="bar bar-3 stat-3" style="height: 13%;">
+                            <span>1040</span>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-4 stat-1" style="height: 76%;">
+                            <span>6080</span>
+                        </div>
+                        <div class="bar bar-5 stat-2" style="height: 86%;">
+                            <span>6880</span>
+                        </div>
+                        <div class="bar bar-6 stat-3" style="height: 22%;">
+                            <span>1760</span>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-7 stat-1" style="height: 78%;">
+                            <span>6240</span>
+                        </div>
+                        <div class="bar bar-8 stat-2" style="height: 72%;">
+                            <span>5760</span>
+                        </div>
+                        <div class="bar bar-9 stat-3" style="height: 36%;">
+                            <span>2880</span>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-10 stat-1" style="height: 44%;">
+                            <span>3520</span>
+                        </div>
+                        <div class="bar bar-11 stat-2" style="height: 64%;">
+                            <span>5120</span>
+                        </div>
+                        <div class="bar bar-12 stat-3" style="height: 59%">
+                            <span>4720</span>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-13 stat-1" style="height: 28%;">
+                            <span>2240</span>
+                        </div>
+                        <div class="bar bar-14 stat-2" style="height: 33%;">
+                            <span>2640</span>
+                        </div>
+                        <div class="bar bar-15 stat-3" style="height: 94%;">
+                            <span>7520</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="w3-card-4 container center" style="display: flex; justify-content: center;">
+        <div>
+            <div class='box' style="background-color: red; margin-left: 10px;"></div><a
+                style="font-size: medium;">Expenditure</a>
+        </div>
+        <div>
+            <div class='box' style="background-color: #b8f123;"></div><a style="font-size: medium;">Earnings</a>
+        </div>
+        <div>
+            <div class='box' style="background-color: #00ADB5;"></div><a style="font-size: medium;">Return</a>
+        </div>
+
+    </div>
+    <div class="center" style="margin-top: 20px; margin-left: 10%; margin-right: 10%;">
+        <div class="svg-item container">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                <circle class="donut-hole" cx="20" cy="20" r="10.91549430918954" fill="#fff"></circle>
+                <circle class="donut-ring" cx="20" cy="20" r="10.91549430918954" fill="transparent" stroke-width="3.5">
+                </circle>
+                <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+                    stroke-width="3.5" stroke-dasharray="69 31" stroke-dashoffset="25"></circle>
+                <g class="donut-text donut-text-1">
+
+                    <text y="50%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-percent">69%</tspan>
+                    </text>
+                    <text y="60%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-data">Annual Goal</tspan>
+                    </text>
+                </g>
+            </svg>
+        </div>
+        <div class="svg-item">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                <circle class="donut-hole" cx="20" cy="20" r="10.91549430918954" fill="#fff"></circle>
+                <circle class="donut-ring" cx="20" cy="20" r="10.91549430918954" fill="transparent" stroke-width="3.5">
+                </circle>
+                <circle class="donut-segment donut-segment-3" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+                    stroke-width="3.5" stroke-dasharray="30 70" stroke-dashoffset="25"></circle>
+                <g class="donut-text donut-text-2">
+
+                    <text y="50%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-percent">30%</tspan>
+                    </text>
+                    <text y="60%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-data">Monthly Goal</tspan>
+                    </text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="svg-item">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                <circle class="donut-hole" cx="20" cy="20" r="10.91549430918954" fill="#fff"></circle>
+                <circle class="donut-ring" cx="20" cy="20" r="10.91549430918954" fill="transparent" stroke-width="3.5">
+                </circle>
+                <circle class="donut-segment donut-segment-4" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+                    stroke-width="3.5" stroke-dasharray="5 95" stroke-dashoffset="25"></circle>
+                <g class="donut-text donut-text-3">
+
+                    <text y="50%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-percent">5%</tspan>
+                    </text>
+                    <text y="60%" transform="translate(0, 2)">
+                        <tspan x="50%" text-anchor="middle" class="donut-data">Risk Factor</tspan>
+                    </text>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <form action="" class="hello container">
+        <div class="center"><a style="font-size: 2.4rem;">Personalised Predictions / Suggestions by ALRIS</a></div>
+        <br><br>
+        <div>
+            <section class="hello" style="padding-right: 40px; width: 80%; margin-left: 10%;">
+                <div class="input-container">
+                    <label class="center" for="name" style="font-size: 3rem;">October 2021</label>
+                    <br>
+                    <label for="name">Expected Earnings</label>
+                    <input value="₹ 999999" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Expected Expenditure</label>
+                    <input type="text" value="₹ 99999" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Investable Amount</label>
+                    <input type="text" value="₹ 9999" disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Invest To</label>
+                    <input type="text" value="Bhavy Enterprises Inc." disabled />
+                </div>
+                <div class="input-container">
+                    <label for="Account" required>Risk Factor</label>
+                    <input type="text" value="Low" disabled style="color: green;" />
+                </div>
+            </section>
+        </div>
+
+    </form>
+
+
+
+    <br><br><br><br><br><br><br><br>
+
+    <footer style="background-color: #393E46;" class="center">
+
+        <img src="./Logopit_1632172412965.png" alt="" srcset="" width="200px"><br>
+        <a style=" font-size: 2.4rem; font-weight: 600;">Automated Low-Risk Investment System</a> <br><br><br><br>
+        <div style="font-size: 1.5rem;">
+            <u><a style="margin-right: 10px;">About</a><a style="margin-right: 10px;">Return Calculator</a><a
+                    style="margin-right: 10px;">Profile</a><a style="margin-right: 10px;">Log Out</a></u>
+        </div>
+        <br><br>
+        © MINORS
+        <br>
+        <br><br><br>
+
+    </footer>
+    <script>
+        const api_url = 'https://alrissignup.herokuapp.com/';
+        const url1=window.location.href;
+        function parseURLParams(url) {
+        var queryStart = url.indexOf("?") + 1,
+        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+    if (query === url || query === "") return;
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=", 2);
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) parms[n] = [];
+        parms[n].push(nv.length === 2 ? v : null);
+    }
+    return parms;
+}
+const var2=parseURLParams(url1);
+console.log(var2); 
+
+       const var1=var2.username[0];
+       async function getDAta(){
+          const data1= {acc_no:var1};
+      const response = await fetch(api_url, {
+                   method: 'POST',
+                   headers: {
+                       'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify(data1)
+               });
+      const data = await response.json();
+     //const {bal,name,exptd_inc,exptd_exp,invest_to,ati,exptd_ret}=data;
+        console.log(data);
+        return data;
+    
+     
+            }
+            getDAta();
+   </script>
+</body>
+
+</html>

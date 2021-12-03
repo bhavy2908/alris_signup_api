@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from flask_cors import CORS
 
@@ -33,9 +33,37 @@ def data(acc_number):
         "exptd_ret": bal*0.08,
     }
 
-@app.route("/", methods = ['POST', 'GET'])
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/login/signIn')
+def signIn():
+    return render_template('login/signIn.html')
+
+@app.route('/alris-main/index')
+def alris_main_index():
+    dics = data(987654321)
+    return render_template('alris-main/index.html', data=dics)
+
+@app.route('/alris-main/about')
+def alris_main_about():
+    return render_template('alris-main/about.html')
+
+@app.route('/alris-main/profile')
+def alris_main_profile():
+    return render_template('alris-main/profile.html')
+
+@app.route('/return/index')
+def return_index():
+    return render_template('return calculator/index.html')
+
+@app.route("/api", methods = ['POST', 'GET'])
 def function():
     if request.method == 'POST':
         acc_no = request.json['acc_no']
         return jsonify(str(data(int(acc_no))))
     return "<p>Hello, World!</p>"
+
+if __name__ == '__main__':
+    app.run(debug=True)

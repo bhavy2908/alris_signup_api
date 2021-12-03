@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.L.R.I.S.</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+</head>
+
+<body>
+    <section style="padding-left: 25%; height: 50vh; ">
+        <svg viewBox="0 0 600 300">
+            <!-- Symbol-->
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".35em">A.L.R.I.S.</text>
+            </symbol>
+            <!-- Duplicate symbols-->
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+        </svg>
+
+
+    </section>
+    <section style="text-align: center; margin-top: -6vh;">
+        <a style="color: white; font-size: x-large;  padding-right: 10px;">
+            Automated Low-Risk Investment System
+        </a>
+        <br>
+        <br>
+        <a style="font-size: large;" href="/login/signIn"
+            class="hbtn hb-fill-middle-rev-bg hpill hbor3 hpad3">Get Started!</a>
+    </section>
+</body>
+
+</html>
