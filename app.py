@@ -8,6 +8,9 @@ CORS(app)
 df = pd.read_csv('data.csv')
 df2 = pd.read_csv('res.csv')
 
+def new_function(s1, s2, s3, khatka):
+    return None
+
 def data(acc_number):
     cur_df = df.loc[df['Account Number'] == acc_number].reset_index()
     cur2_df = df2.loc[df2['account number'] == acc_number]
@@ -69,6 +72,7 @@ def return_index():
         s2 = request.form['s2']
         s3 = request.form['s3']
         khatka = request.form['khatka']
+        res = new_function(s1, s2, s3, khatka)
         return render_template('return calculator/index.html')
     return render_template('return calculator/index.html')
 
