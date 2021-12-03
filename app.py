@@ -20,7 +20,7 @@ def data(acc_number):
     inc = cur_df['Income'].to_numpy()
     exp = cur_df['Expenditure'].to_numpy()
     sav = cur_df['Savings'].to_numpy()
-    return jsonify({
+    return {
         "inc": list(inc),
         "exp": list(exp),
         "sav": list(sav),
@@ -31,7 +31,7 @@ def data(acc_number):
         "invest_to": invest_to,
         "ati": bal*0.08/(1+factor),
         "exptd_ret": bal*0.08,
-    })
+    }
 
 @app.route("/", methods = ['POST', 'GET'])
 def function():
