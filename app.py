@@ -20,18 +20,18 @@ def data(acc_number):
     inc = cur_df['Income'].to_numpy()
     exp = cur_df['Expenditure'].to_numpy()
     sav = cur_df['Savings'].to_numpy()
-    return {
-        "inc": list(inc),
-        "exp": list(exp),
-        "sav": list(sav),
-        "bal": bal,
-        "name": name,
-        "exptd_inc": avg_inc,
-        "exptd_exp": avg_exp,
-        "invest_to": invest_to,
-        "ati": bal*0.08/(1+factor),
-        "exptd_ret": bal*0.08,
-    }
+    return [
+        {"inc": list(inc)},
+        {"exp": list(exp)},
+        {"sav": list(sav)},
+        {"bal": bal},
+        {"name": name},
+        {"exptd_inc": avg_inc},
+        {"exptd_exp": avg_exp},
+        {"invest_to": invest_to},
+        {"ati": bal*0.08/(1+factor)},
+        {"exptd_ret": bal*0.08},
+    ]
 
 @app.route("/", methods = ['POST', 'GET'])
 def function():
