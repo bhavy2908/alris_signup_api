@@ -62,8 +62,13 @@ def alris_main_about():
 def alris_main_profile():
     return render_template('alris-main/profile.html')
 
-@app.route('/return/index')
+@app.route('/return/index', methods = ['POST', 'GET'])
 def return_index():
+    if request.method == "POST":
+        s1 = request.form['s1']
+        s2 = request.form['s2']
+        s3 = request.form['s3']
+        return render_template('return calculator/index.html')
     return render_template('return calculator/index.html')
 
 @app.route("/api", methods = ['POST', 'GET'])

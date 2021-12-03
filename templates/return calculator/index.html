@@ -50,12 +50,12 @@
     </script>
 
     <div class="container" style="padding-top: 150px;">
-        <form action="" method="POST" class="hello container">
+        <form action="/return/index" method="POST" class="hello container">
             <section class="hello left" style="padding-right: 40px;padding-bottom: 40px;">
                 <div>
                     <h1 class="slider-title">Amount (to invest)</h1>
                     <div class="value">₹ 0</div>
-                    <input type="range" min="0" max="100000" step="5000" value="0" id="s1">
+                    <input type="range" name="s1" min="0" max="100000" step="5000" value="0" id="s1">
 
                 </div>
 
@@ -75,7 +75,7 @@
                 <div>
                     <h1 style="margin-left: 1%; font-size: x-large;">Desired Return</h1>
                     <div class="value2">₹ 0</div>
-                    <input type="range" min="0" max="100000" step="1000" value="0" id="s2">
+                    <input type="range" name="s2" min="0" max="100000" step="1000" value="0" id="s2">
 
                 </div>
 
@@ -122,7 +122,7 @@
                 <div>
                     <h1 style="margin-left: 1%; font-size: x-large;">Time Period</h1>
                     <div class="value3">0 Years</div>
-                    <input style="width: 96%;" type="range" min="1" max="20" step="1" value="0" id="s3">
+                    <input style="width: 96%;" name="s3" type="range" min="1" max="20" step="1" value="0" id="s3">
 
                 </div>
 
@@ -139,7 +139,7 @@
                     elem3.addEventListener("input", rangeValue);
                 </script>
             </section>
-
+            <input type="submit">
         </form>
 
         <div style="text-align: center; margin-top: 40px;">
