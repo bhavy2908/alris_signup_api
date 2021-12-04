@@ -56,7 +56,7 @@
                 <div>
                     <h1 class="slider-title">Amount (to invest)</h1>
                     <div class="value">₹ 0</div>
-                    <input type="range" name="s1" min="0" max="100000" step="5000" value="0" id="s1">
+                    <input type="range" name="s1" min="0" max="1000000" step="5000" value="0" id="s1">
 
                 </div>
 
@@ -76,7 +76,7 @@
                 <div>
                     <h1 style="margin-left: 1%; font-size: x-large;">Desired Return</h1>
                     <div class="value2">₹ 0</div>
-                    <input type="range" name="s2" min="0" max="100000" step="1000" value="0" id="s2">
+                    <input type="range" name="s2" min="0" max="1500000" step="1000" value="0" id="s2">
 
                 </div>
 
@@ -94,11 +94,11 @@
             </section>
             <br><br><br>
 
-            <section class="hello left" style="padding-right: 40px;padding-bottom: 13px;">
+            <section class="hello left" style="padding-right: 40px;padding-bottom: 13px; margin-top: 50px;">
                 <div>
                     <h1 style="margin-left: 1%; font-size: x-large;">Risk Factor</h1>
                     <div>
-                        <input type="radio" name="khatka" value="Low"> 
+                        <input type="radio" name="khatka" value="Low">
                         <label for="html">Low</label><br>
                         <input type="radio" name="khatka" value="Medium">
                         <label for="html">Medium</label><br>
@@ -114,7 +114,7 @@
                 <div>
                     <h1 style="margin-left: 1%; font-size: x-large;">Time Period</h1>
                     <div class="value3">0 Years</div>
-                    <input style="width: 96%;" name="s3" type="range" min="1" max="20" step="1" value="0" id="s3">
+                    <input style="width: 96%;" name="s3" type="range" min="1" max="10" step="1" value="0" id="s3">
 
                 </div>
 
@@ -131,142 +131,179 @@
                     elem3.addEventListener("input", rangeValue);
                 </script>
             </section>
-            <input type="submit">
-        </form>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="#" class="hbtn hb-fill-middle-bg hpill hbor1 hpad2">Calculate Possible Investments</a>
-        </div>
-
-        <div class="value3" style="margin-left: 5%;">
-            2 Possible Result(s) found!
-        </div>
-        <form action="">
-            <section class="value3" style="width: 97.5%; margin-top: 20px;">
-                Expected Return Amount: 3,00,000
-                <br>
-                Expected Time Period: 2.5 Years
-                <br>
-                Average Monthly Investments: 30,000
-                <br>
-                Invest to: TATA Power Solutions Pvt. Ltd.
-                <br>Risk Factor: Medium
-
-            </section>
-        </form>
-        <form action="">
-            <section class="value3" style="width: 97.5%; margin-top: 20px;">
-                Expected Return Amount: 3,00,000
-                <br>
-                Expected Time Period: 4.5 Years
-                <br>
-                Average Monthly Investments: 10,000
-                <br>
-                Invest to: RKO Industries Pvt. Ltd.
-                <br>
-                Risk Factor: Low
-
-            </section>
-        </form>
-
-        <form class="container hello">
-            <section style="width: 97.5%; margin-top: 30px; margin-bottom: 40px;">
-                <div id="bar-chart" class="center" style="padding-left: 20px;">
 
 
-                    <a style="font-size: 2.4rem; text-align: center;">Your Customized Monthly Investment Pattern</a>
-                    <br><br><br><br><br><br>
-                    <div class="graph">
-                        <ul class="x-axis">
-                            <li><span>May</span></li>
-                            <li><span>June</span></li>
-                            <li><span>July</span></li>
-                            <li><span>August</span></li>
-                            <li><span>September</span></li>
-                        </ul>
-                        <ul class="y-axis">
-                            <li><span>₹4000</span></li>
-                            <li><span>₹3000</span></li>
-                            <li><span>₹2000</span></li>
-                            <li><span>₹1000</span></li>
-                            <li><span>₹0</span></li>
-                        </ul>
-                        <div class="bars">
-                            <div class="bar-group">
-                                <div class="bar bar-1 stat-1" style="height: 51%;">
-                                    <span>4080</span>
+            <div style="margin-top: 50px; margin-bottom: 100px;">
+                <input type="submit" value="Calculate Possible Investments">
+            </div>
+
+            <div class="value3" style="margin-left: 5%;">
+                5 Possible Result(s) found!
+            </div>
+            <form action="">
+                <section class="value3" style="width: 97.5%; margin-top: 20px;">
+                    Expected Return Amount: {{data.exptd_ret}}
+                    <br>
+                    Expected Time Period: {{data.exptd_tp}} years
+                    <br>
+                    Average Monthly Investments: {{data.m1}}
+                    <br>
+                    Invest to: {{data.i1}}
+                    <br>Risk Factor: {{data.risk_factor}}
+
+                </section>
+            </form>
+            <form action="">
+                <section class="value3" style="width: 97.5%; margin-top: 20px;">
+                    Expected Return Amount: {{data.exptd_ret}}
+                    <br>
+                    Expected Time Period: {{data.exptd_tp}} years
+                    <br>
+                    Average Monthly Investments: {{data.m2}}
+                    <br>
+                    Invest to: {{data.i2}}
+                    <br>Risk Factor: {{data.risk_factor}}
+
+                </section>
+            </form>
+            <form action="">
+                <section class="value3" style="width: 97.5%; margin-top: 20px;">
+                    Expected Return Amount: {{data.exptd_ret}}
+                    <br>
+                    Expected Time Period: {{data.exptd_tp}} years
+                    <br>
+                    Average Monthly Investments: {{data.m3}}
+                    <br>
+                    Invest to: {{data.i3}}
+                    <br>Risk Factor: {{data.risk_factor}}
+
+                </section>
+            </form>
+            <form action="">
+                <section class="value3" style="width: 97.5%; margin-top: 20px;">
+                    Expected Return Amount: {{data.exptd_ret}}
+                    <br>
+                    Expected Time Period: {{data.exptd_tp}} years
+                    <br>
+                    Average Monthly Investments: {{data.m4}}
+                    <br>
+                    Invest to: {{data.i4}}
+                    <br>Risk Factor: {{data.risk_factor}}
+
+                </section>
+            </form>
+            <form action="">
+                <section class="value3" style="width: 97.5%; margin-top: 20px;">
+                    Expected Return Amount: {{data.exptd_ret}}
+                    <br>
+                    Expected Time Period: {{data.exptd_tp}} years
+                    <br>
+                    Average Monthly Investments: {{data.m5}}
+                    <br>
+                    Invest to: {{data.i5}}
+                    <br>Risk Factor: {{data.risk_factor}}
+
+                </section>
+            </form>
+
+            <form class="container hello">
+                <section style="width: 97.5%; margin-top: 30px; margin-bottom: 40px;">
+                    <div id="bar-chart" class="center" style="padding-left: 20px;">
+
+
+                        <a style="font-size: 2.4rem; text-align: center;">Your Customized Monthly Investment Pattern</a>
+                        <br><br><br><br><br><br>
+                        <div class="graph">
+                            <ul class="x-axis">
+                                <li><span>May</span></li>
+                                <li><span>June</span></li>
+                                <li><span>July</span></li>
+                                <li><span>August</span></li>
+                                <li><span>September</span></li>
+                            </ul>
+                            <ul class="y-axis">
+                                <li><span>₹4000</span></li>
+                                <li><span>₹3000</span></li>
+                                <li><span>₹2000</span></li>
+                                <li><span>₹1000</span></li>
+                                <li><span>₹0</span></li>
+                            </ul>
+                            <div class="bars">
+                                <div class="bar-group">
+                                    <div class="bar bar-1 stat-1" style="height: 51%;">
+                                        <span>4080</span>
+                                    </div>
+                                    <div class="bar bar-2 stat-2" style="height: 71%;">
+                                        <span>5680</span>
+                                    </div>
+                                    <div class="bar bar-3 stat-3" style="height: 13%;">
+                                        <span>1040</span>
+                                    </div>
                                 </div>
-                                <div class="bar bar-2 stat-2" style="height: 71%;">
-                                    <span>5680</span>
+                                <div class="bar-group">
+                                    <div class="bar bar-4 stat-1" style="height: 76%;">
+                                        <span>6080</span>
+                                    </div>
+                                    <div class="bar bar-5 stat-2" style="height: 86%;">
+                                        <span>6880</span>
+                                    </div>
+                                    <div class="bar bar-6 stat-3" style="height: 22%;">
+                                        <span>1760</span>
+                                    </div>
                                 </div>
-                                <div class="bar bar-3 stat-3" style="height: 13%;">
-                                    <span>1040</span>
+                                <div class="bar-group">
+                                    <div class="bar bar-7 stat-1" style="height: 78%;">
+                                        <span>6240</span>
+                                    </div>
+                                    <div class="bar bar-8 stat-2" style="height: 72%;">
+                                        <span>5760</span>
+                                    </div>
+                                    <div class="bar bar-9 stat-3" style="height: 36%;">
+                                        <span>2880</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-4 stat-1" style="height: 76%;">
-                                    <span>6080</span>
+                                <div class="bar-group">
+                                    <div class="bar bar-10 stat-1" style="height: 44%;">
+                                        <span>3520</span>
+                                    </div>
+                                    <div class="bar bar-11 stat-2" style="height: 64%;">
+                                        <span>5120</span>
+                                    </div>
+                                    <div class="bar bar-12 stat-3" style="height: 59%">
+                                        <span>4720</span>
+                                    </div>
                                 </div>
-                                <div class="bar bar-5 stat-2" style="height: 86%;">
-                                    <span>6880</span>
-                                </div>
-                                <div class="bar bar-6 stat-3" style="height: 22%;">
-                                    <span>1760</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-7 stat-1" style="height: 78%;">
-                                    <span>6240</span>
-                                </div>
-                                <div class="bar bar-8 stat-2" style="height: 72%;">
-                                    <span>5760</span>
-                                </div>
-                                <div class="bar bar-9 stat-3" style="height: 36%;">
-                                    <span>2880</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-10 stat-1" style="height: 44%;">
-                                    <span>3520</span>
-                                </div>
-                                <div class="bar bar-11 stat-2" style="height: 64%;">
-                                    <span>5120</span>
-                                </div>
-                                <div class="bar bar-12 stat-3" style="height: 59%">
-                                    <span>4720</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-13 stat-1" style="height: 28%;">
-                                    <span>2240</span>
-                                </div>
-                                <div class="bar bar-14 stat-2" style="height: 33%;">
-                                    <span>2640</span>
-                                </div>
-                                <div class="bar bar-15 stat-3" style="height: 94%;">
-                                    <span>7520</span>
+                                <div class="bar-group">
+                                    <div class="bar bar-13 stat-1" style="height: 28%;">
+                                        <span>2240</span>
+                                    </div>
+                                    <div class="bar bar-14 stat-2" style="height: 33%;">
+                                        <span>2640</span>
+                                    </div>
+                                    <div class="bar bar-15 stat-3" style="height: 94%;">
+                                        <span>7520</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <br><br><br>
-                <div class="w3-card-4 container center" style="display: flex; justify-content: center;">
-                    <div>
-                        <div class='box' style="background-color: red; margin-left: 10px;"></div><a
-                            style="font-size: medium;">Savings</a>
-                    </div>
-                    <div>
-                        <div class='box' style="background-color: #b8f123;"></div><a
-                            style="font-size: medium;">Investment</a>
-                    </div>
-                    <div>
-                        <div class='box' style="background-color: #00ADB5;"></div><a
-                            style="font-size: medium;">Return</a>
-                    </div>
+                    <br><br><br>
+                    <div class="w3-card-4 container center" style="display: flex; justify-content: center;">
+                        <div>
+                            <div class='box' style="background-color: red; margin-left: 10px;"></div><a
+                                style="font-size: medium;">Savings</a>
+                        </div>
+                        <div>
+                            <div class='box' style="background-color: #b8f123;"></div><a
+                                style="font-size: medium;">Investment</a>
+                        </div>
+                        <div>
+                            <div class='box' style="background-color: #00ADB5;"></div><a
+                                style="font-size: medium;">Return</a>
+                        </div>
 
-            </section>
-        </form>
+                </section>
+            </form>
 
 
 

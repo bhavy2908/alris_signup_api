@@ -2,14 +2,14 @@ from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from flask_cors import CORS
 import random
+from lstm import alris_lstm
 
 app = Flask(__name__)
 CORS(app)
 df = pd.read_csv('data.csv')
 df2 = pd.read_csv('res.csv')
 
-def new_function(s1, s2, s3, khatka):
-    return None
+
 
 def data(acc_number):
     cur_df = df.loc[df['Account Number'] == acc_number].reset_index()
@@ -67,14 +67,45 @@ def alris_main_profile():
 
 @app.route('/return/index', methods = ['POST', 'GET'])
 def return_index():
+
     if request.method == "POST":
-        s1 = request.form['s1']
-        s2 = request.form['s2']
-        s3 = request.form['s3']
+        s1 = int(request.form['s1'])
+        s2 = int(request.form['s2'])
+        s3 = int(request.form['s3'])
         khatka = request.form['khatka']
-        res = new_function(s1, s2, s3, khatka)
-        return render_template('return calculator/index.html')
-    return render_template('return calculator/index.html')
+        res = alris_lstm(s1, s2, s3, khatka)
+        data = {
+            "m1": res[0][0],
+            "m2": res[0][1],
+            "m3": res[0][2],
+            "m4": res[0][3],
+            "m5": res[0][4],
+            "i1": res[1][0],
+            "i2": res[1][1],
+            "i3": res[1][2],
+            "i4": res[1][3],
+            "i5": res[1][4],
+            "risk_factor": khatka,
+            "exptd_ret": s2,
+            "exptd_tp": s3,
+        }
+        return render_template('return calculator/index.html', data=data)
+
+    return render_template('return calculator/index.html', data = {
+            "m1": None,
+            "m2": None,
+            "m3": None,
+            "m4": None,
+            "m5": None,
+            "i1": None,
+            "i2": None,
+            "i3": None,
+            "i4": None,
+            "i5": None,
+            "risk_factor":None,
+            "exptd_ret": None,
+            "exptd_tp": None,
+        })
 
 @app.route("/api", methods = ['POST', 'GET'])
 def function():
